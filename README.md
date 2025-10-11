@@ -49,6 +49,35 @@ Each sequence is provided with depth maps and annotations to support tasks such 
 
 ---
 
+### 🚀 Setting up the GroundTruth Dataset
+
+To create the required folder structure and populate the dataset files, run the provided Python script:
+
+```
+python setup_groundtruth.py
+```
+
+**What this script does:**
+Creates the GroundTruth/ directory and all necessary subfolders
+Generates placeholder files for BoundingBoxes/, ObjectClasses.txt, SceneMetadata.csv, and DistortionLabels.csv
+Ensures that the dataset is ready for model training and evaluation
+
+**Requirements:**
+- Python 3.8+
+Necessary Python packages listed in requirements.txt (run pip install -r requirements.txt if needed)
+
+**Example usage:**
+
+```
+ # From the project root
+python setup_groundtruth.py --output-dir ./GroundTruth
+
+```
+
+After running this script, the dataset folder is fully structured and ready to use.
+
+---
+
 ## 🗂️ Dataset Structure
 
 The dataset is organized in a clear directory structure to facilitate access to original videos, distorted versions, and corresponding ground-truth data.
@@ -63,42 +92,30 @@ This dual-format annotation setup allows users to directly integrate PVD4RCV int
 ```
 PVD4RCV/
 │
-├── Original/ # 24 pristine reference videos (10s each)
-│ ├── video_001.mp4
-│ ├── video_002.mp4
-│ └── ...
-│
 ├── Distorted/ # 672 distorted videos grouped by type & severity
-│ ├── MotionBlur/
-│ │ ├── Level1/
-│ │ │ ├── video_001_lvl1.mp4
+│ ├── Sequence1/
+│ │ ├── Sequence1_DistortionType_DistorsionLevel.mp4
+│ │ └── ...
+│ ├── Sequence2/
+│ ├── Sequence3/
+│ └── ../
+│
+├── GroundTruth/ # Truth value directory (annotations)
+├── Sequence1/ # video sequence
+│ ├── BoundingBoxes/ # Per-frame object annotations
+│ │ ├── Sequence1.json
+│ │ ├── txt/ # Per-frame object annotations
+│ │ │ ├── frame_000.txt
 │ │ │ └── ...
-│ │ ├── Level2/
+│ ├── depth/ # depth map annotations
+│ │ ├── frame_000.png
 │ │ └── ...
-│ ├── DefocusBlur/
-│ ├── Compression/
-│ ├── Noise/
-│ ├── Haze/
-│ └── Rain/
-│
-├── DepthMaps/ # Corresponding depth maps for each sequence
-│ ├── video_001_depth/
-│ │ ├── frame_0001.png
-│ │ └── ...
-│ └── ...
-│
-└── GroundTruth/ # Truth value directory (annotations)
-├── BoundingBoxes/ # Per-frame object annotations
-│ ├── video_001.json
-│ ├── video_002.json
-│ └── ...
 │
 ├── ObjectClasses.txt # List of all object categories
 ├── SceneMetadata.csv # Scene-level metadata (lighting, motion, etc.)
 └── DistortionLabels.csv # Ground-truth mapping: video ↔ distortion type/level
 ```
 ---
-
 
 ### 📘 Description of the *GroundTruth* folder
 
