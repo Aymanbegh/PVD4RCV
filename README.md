@@ -71,6 +71,67 @@ PVD4RCV can be used for:
 
 ---
 
+## 🗂️ Dataset Structure
+
+The dataset is organized in a clear directory structure to facilitate access to original videos, distorted versions, and corresponding ground-truth data.
+PVD4RCV/
+│
+├── Original/ # 24 pristine reference videos (10s each)
+│ ├── video_001.mp4
+│ ├── video_002.mp4
+│ └── ...
+│
+├── Distorted/ # 672 distorted videos grouped by type & severity
+│ ├── MotionBlur/
+│ │ ├── Level1/
+│ │ │ ├── video_001_lvl1.mp4
+│ │ │ └── ...
+│ │ ├── Level2/
+│ │ └── ...
+│ ├── DefocusBlur/
+│ ├── Compression/
+│ ├── Noise/
+│ ├── Haze/
+│ └── Rain/
+│
+├── DepthMaps/ # Corresponding depth maps for each sequence
+│ ├── video_001_depth/
+│ │ ├── frame_0001.png
+│ │ └── ...
+│ └── ...
+│
+└── GroundTruth/ # Truth value directory (annotations)
+├── BoundingBoxes/ # Per-frame object annotations
+│ ├── video_001.json
+│ ├── video_002.json
+│ └── ...
+│
+├── ObjectClasses.txt # List of all object categories
+├── SceneMetadata.csv # Scene-level metadata (lighting, motion, etc.)
+└── DistortionLabels.csv # Ground-truth mapping: video ↔ distortion type/level
+
+---
+
+
+### 📘 Description of the *GroundTruth* folder
+
+The **GroundTruth/** directory contains all the reference data used for model evaluation and training:
+
+- **BoundingBoxes/** → JSON files with per-frame bounding boxes and object IDs  
+  *(format: frame, object_id, class, x_min, y_min, x_max, y_max)*  
+- **ObjectClasses.txt** → List of object classes present in the dataset (e.g. car, person, ball, etc.)  
+- **SceneMetadata.csv** → Global scene information such as lighting, motion dynamics, and environment type.  
+- **DistortionLabels.csv** → Mapping file linking each distorted video to its original reference and distortion parameters (type, severity, frame count).  
+
+---
+
+
+## 📊 Benchmark
+
+Coming soon...
+
+---
+
 ## 📥 Access and Download
 
 👉 [Download Link] (insert official link here)
