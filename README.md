@@ -49,31 +49,11 @@ Each sequence is provided with depth maps and annotations to support tasks such 
 
 ---
 
-## 🔧 Main Applications
-
-PVD4RCV can be used for:
-
-* **Robust Object Detection**: evaluating detection under degraded conditions
-* **Visual Tracking**: testing robustness of tracking algorithms
-* **Distortion Classification**: training/testing distortion recognition models
-* **Scene Understanding**: benchmarking scene analysis in complex environments
-* **Depth Estimation**: evaluating monocular depth estimation with ground-truth maps
-
----
-
-## 📊 Key Features
-
-✅ Photo-realistic distortions based on physical models
-✅ Multiple severity levels for each distortion type
-✅ Large diversity of real-world scenarios
-✅ Includes annotations and depth maps
-✅ Suitable for benchmarking and training deep learning models
-
----
-
 ## 🗂️ Dataset Structure
 
 The dataset is organized in a clear directory structure to facilitate access to original videos, distorted versions, and corresponding ground-truth data.
+
+'''
 PVD4RCV/
 │
 ├── Original/ # 24 pristine reference videos (10s each)
@@ -109,7 +89,7 @@ PVD4RCV/
 ├── ObjectClasses.txt # List of all object categories
 ├── SceneMetadata.csv # Scene-level metadata (lighting, motion, etc.)
 └── DistortionLabels.csv # Ground-truth mapping: video ↔ distortion type/level
-
+'''
 ---
 
 
@@ -122,6 +102,28 @@ The **GroundTruth/** directory contains all the reference data used for model ev
 - **ObjectClasses.txt** → List of object classes present in the dataset (e.g. car, person, ball, etc.)  
 - **SceneMetadata.csv** → Global scene information such as lighting, motion dynamics, and environment type.  
 - **DistortionLabels.csv** → Mapping file linking each distorted video to its original reference and distortion parameters (type, severity, frame count).  
+
+---
+
+## 🔧 Main Applications
+
+PVD4RCV can be used for:
+
+* **Robust Object Detection**: evaluating detection under degraded conditions
+* **Visual Tracking**: testing robustness of tracking algorithms
+* **Distortion Classification**: training/testing distortion recognition models
+* **Scene Understanding**: benchmarking scene analysis in complex environments
+* **Depth Estimation**: evaluating monocular depth estimation with ground-truth maps
+
+---
+
+## 📊 Key Features
+
+✅ Photo-realistic distortions based on physical models
+✅ Multiple severity levels for each distortion type
+✅ Large diversity of real-world scenarios
+✅ Includes annotations and depth maps
+✅ Suitable for benchmarking and training deep learning models
 
 ---
 
