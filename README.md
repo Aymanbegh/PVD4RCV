@@ -52,7 +52,8 @@ Each sequence is provided with depth maps and annotations to support tasks such 
 ## 🗂️ Dataset Structure
 
 The dataset is organized in a clear directory structure to facilitate access to original videos, distorted versions, and corresponding ground-truth data.
-'''
+
+```
 PVD4RCV/
 │
 ├── Original/ # 24 pristine reference videos (10s each)
@@ -88,7 +89,7 @@ PVD4RCV/
 ├── ObjectClasses.txt # List of all object categories
 ├── SceneMetadata.csv # Scene-level metadata (lighting, motion, etc.)
 └── DistortionLabels.csv # Ground-truth mapping: video ↔ distortion type/level
-'''
+```
 ---
 
 
