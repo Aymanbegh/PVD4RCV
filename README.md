@@ -52,6 +52,13 @@ Each sequence is provided with depth maps and annotations to support tasks such 
 ## 🗂️ Dataset Structure
 
 The dataset is organized in a clear directory structure to facilitate access to original videos, distorted versions, and corresponding ground-truth data.
+ addition to the video and depth data, **all annotations are provided in two complementary formats** to ensure compatibility with most computer vision frameworks:
+
+- **COCO format**: JSON files following the COCO dataset structure, including bounding boxes, segmentation masks (if applicable), and category IDs consistent with the **COCO label indexing**.  
+- **YOLO format**: Plain-text `.txt` files containing normalized bounding box coordinates and class indices following the **YOLO label convention**. Each video frame has its own corresponding `.txt` annotation file.
+
+This dual-format annotation setup allows users to directly integrate PVD4RCV into common training pipelines such as **Detectron2**, **MMDetection**, or **Ultralytics YOLO** without additional preprocessing.
+
 
 ```
 PVD4RCV/
