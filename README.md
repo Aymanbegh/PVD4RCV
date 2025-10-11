@@ -52,7 +52,6 @@ Each sequence is provided with depth maps and annotations to support tasks such 
 ## 🗂️ Dataset Structure
 
 The dataset is organized in a clear directory structure to facilitate access to original videos, distorted versions, and corresponding ground-truth data.
-
 '''
 PVD4RCV/
 │
