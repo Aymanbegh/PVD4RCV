@@ -58,13 +58,13 @@ python setup_groundtruth.py
 ```
 
 **What this script does:**
-Creates the GroundTruth/ directory and all necessary subfolders
-Generates placeholder files for BoundingBoxes/, ObjectClasses.txt, SceneMetadata.csv, and DistortionLabels.csv
-Ensures that the dataset is ready for model training and evaluation
+- Creates the GroundTruth/ directory and all necessary subfolders
+- Generates placeholder files for BoundingBoxes/, ObjectClasses.txt, SceneMetadata.csv, and DistortionLabels.csv
+- Ensures that the dataset is ready for model training and evaluation
 
 **Requirements:**
 - Python 3.8+
-Necessary Python packages listed in requirements.txt (run pip install -r requirements.txt if needed)
+- Necessary Python packages listed in requirements.txt (run pip install -r requirements.txt if needed)
 
 **Example usage:**
 
