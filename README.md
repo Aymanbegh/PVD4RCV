@@ -73,6 +73,39 @@ Before setting up the GroundTruth structure, make sure to download the complete 
 You can download the full dataset package from the official link:
 👉 Download PVD4RCV Dataset
 
+## 🧰 Step 1 — Extract video frames
+
+Once the dataset is downloaded and extracted locally, run the provided Python script to extract frames from each video sequence and store them in structured folders.
+
+Each frame will be automatically renamed following this convention: **{video_name}_{dist}_lvl{lvl}_{original_frame_name}**
+
+Example:
+
+```
+traffic_rain_lvl2_frame_00045.jpg
+airport_blur_lvl4_frame_00012.jpg
+```
+
+This ensures clear identification of the scene, distortion type, and severity level for every frame.
+
+Run the script from the project root:
+
+```
+python extract_frames.py --input-dir ./PVD4RCV/Distorted --output-dir ./PVD4RCV/Frames
+```
+
+**What this script does:**
+* Iterates through all distorted video sequences
+* Extracts individual frames using OpenCV (cv2.VideoCapture)
+* Saves them with the naming pattern above
+* Preserves scene and distortion metadata for traceability
+
+**Requirements:**
+* Python ≥ 3.8
+* Required libraries: opencv-python, tqdm, os, argparse
+(install via pip install -r requirements.txt if needed)
+
+
 ## 🗂️ Dataset Structure
 
 The dataset is organized in a clear directory structure to facilitate access to original videos, distorted versions, and corresponding ground-truth data.
