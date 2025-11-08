@@ -37,6 +37,17 @@ Each sequence is provided with depth maps and annotations to support tasks such 
 * **Format**: MP4
 * **Total size**: ~21.2 GB
 
+## 🧩 Dataset Split — Training / Validation / Test
+| Set            | Number of Sequences | Percentage | Description                                                                      |
+| :------------- | :-----------------: | :--------: | :------------------------------------------------------------------------------- |
+| **Training**   |     16 sequences    |  **≈ 67%** | Used for model training — includes diverse environments and all distortion types |
+| **Validation** |     4 sequences     |  **≈ 17%** | Used to tune hyperparameters and monitor model generalization                    |
+| **Test**       |     4 sequences     |  **≈ 17%** | Held-out subset for final performance evaluation under unseen conditions         |
+
+🗂 Note:
+Each subset contains both original and distorted versions of the videos (all 4 severity levels).
+Splitting ensures scene disjointness — i.e., no identical scenes appear across training, validation, and test sets, ensuring a fair robustness evaluation.
+
 ### 🌍 Scenarios included
 
 * Road traffic
