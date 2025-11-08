@@ -96,15 +96,58 @@ python extract_frames.py --input-dir ./PVD4RCV/Distorted --output-dir ./PVD4RCV/
 
 **What this script does:**
 * Iterates through all distorted video sequences
-* Extracts individual frames using OpenCV (cv2.VideoCapture)
+* Extracts individual frames using OpenCV (`cv2.VideoCapture`)
 * Saves them with the naming pattern above
 * Preserves scene and distortion metadata for traceability
 
 **Requirements:**
 * Python ≥ 3.8
-* Required libraries: opencv-python, tqdm, os, argparse
-(install via pip install -r requirements.txt if needed)
+* Required libraries: `opencv-python`, `tqdm`, `os`, `argparse`
+(install via `pip install -r requirements.txt` if needed)
 
+
+## 🧩 Step 2 — Generate a custom JSON subset (optional)
+
+If you want to train or evaluate your models on a subset of the dataset — for example, only a few specific sequences instead of the full training, validation, or test sets — you can use the provided JSON generation script.
+
+This script allows you to:
+* Select only the video sequences you wish to include
+* Merge their corresponding annotations into a single COCO-style JSON file
+* Automatically include the correct file naming (e.g. video_dist_lvl_frame.jpg)
+* Save the result as a ready-to-use global_annotations.json
+
+🧭 **How to use it**
+**1.** Create a text file named `name_txt.txt` containing the list of sequences to include, e.g.:
+
+```
+traffic
+airport
+mall
+```
+**2.** Place this file at the root of your project (or next to the script).
+**3.** Run the script:
+
+```
+python generate_custom_json.py
+```
+
+**4.** The script will merge only the listed sequences and save the output to:
+
+```
+/JSON_GLOBAL_FULL/global_annotations.json
+```
+
+📁 **Output**
+A COCO-compatible annotation file containing:
+* Only the selected sequences
+* All associated distortions and severity levels
+* Updated image paths following the convention:
+
+```
+{video_name}_{dist}_lvl{lvl}_{frame_name}.jpg
+```
+
+This allows you to customize your training or validation datasets without needing to regenerate or load the entire PVD4RCV dataset each time.
 
 ## 🗂️ Dataset Structure
 
