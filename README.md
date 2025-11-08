@@ -60,34 +60,18 @@ Splitting ensures scene disjointness — i.e., no identical scenes appear across
 
 ---
 
-### 🚀 Setting up the GroundTruth Dataset
+## 🚀 Preparing the PVD4RCV Dataset
 
-To create the required folder structure and populate the dataset files, run the provided Python script:
+Before setting up the GroundTruth structure, make sure to download the complete dataset, which includes:
 
-```
-python setup_groundtruth.py
-```
+🧩 Original and distorted videos (all 24 sequences × 4 distortion levels × multiple types)
 
-**What this script does:**
-- Creates the GroundTruth/ directory and all necessary subfolders
-- Generates placeholder files for BoundingBoxes/, ObjectClasses.txt, SceneMetadata.csv, and DistortionLabels.csv
-- Ensures that the dataset is ready for model training and evaluation
+🌈 Depth maps associated with each video sequence
 
-**Requirements:**
-- Python 3.8+
-- Necessary Python packages listed in requirements.txt (run pip install -r requirements.txt if needed)
+🗂️ Annotation files (bounding boxes, object classes, and distortion metadata)
 
-**Example usage:**
-
-```
- # From the project root
-python setup_groundtruth.py --output-dir ./GroundTruth
-
-```
-
-After running this script, the dataset folder is fully structured and ready to use.
-
----
+You can download the full dataset package from the official link:
+👉 Download PVD4RCV Dataset
 
 ## 🗂️ Dataset Structure
 
