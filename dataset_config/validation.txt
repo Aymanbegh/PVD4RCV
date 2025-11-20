@@ -1,0 +1,4 @@
+mall
+Manifestation
+Outside_Bank
+Tram_station

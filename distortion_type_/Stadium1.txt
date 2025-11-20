@@ -1,0 +1,6 @@
+noise
+compression
+global_blur_motion
+global_defocus_blur
+contrast
+local_defocus_blur

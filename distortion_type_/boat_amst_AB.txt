@@ -1,0 +1,7 @@
+noise
+compression
+global_defocus_blur
+contrast
+haze
+rain
+global_blur_motion

@@ -1,0 +1,16 @@
+Airport
+boat_amst_AB
+Bridge_car_moov_day
+Bus_by_night
+Bus_Stop
+Highway1
+Landing_plane
+Montain_village
+Outside_Shop
+Parking1
+Private_detective
+River_view1
+school
+Square_place1
+Stadium1
+Vatican_square_night
