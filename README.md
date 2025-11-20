@@ -192,7 +192,7 @@ PVD4RCV/
 │ ├── annotations/ # video sequence
 │ │ ├── train.json # json annotations of the train set
 │ │ ├── validation.json # json annotations of the validation set
-│ │ ├── yolo/ # Per-frame object annotations
+│ │ ├── yolo/ # Contain yolo format annotations
 │ │
 │ │ │ ├── Sequence/ # Per-frame object annotations
 │ │ │ │ ├── frame_000.txt
@@ -207,6 +207,7 @@ PVD4RCV/
 │ │ │ │ │ ├── frame_000.txt
 │ │ │ │ │ └── ...
 │ │ │ │ ├── ...
+│ │ ├── yolo_shakiness/ # Contain yolo format annotation for shakiness distortions
 │ │ │ 
 │ ├── depth/ # depth map annotations
 │ │ ├── Sequence/ # Per-frame object annotations
