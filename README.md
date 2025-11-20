@@ -98,7 +98,6 @@ To run the script, use the following command from the project root:
 
 ```
 python extract_frames.py --input-dir ./PVD4RCV/Distorted --output-dir ./PVD4RCV/Frames --name-txt name_txt_.txt --distortion-dir ./distortion_type_
-
 ```
 
 **Where:**
