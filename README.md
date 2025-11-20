@@ -78,7 +78,11 @@ You can download the full dataset package from the official link:
 Once the dataset is downloaded and extracted locally, run the provided Python script to extract frames from each video sequence and store them in structured folders.
 
 Each frame will be automatically renamed following this convention: **{video_name}_{dist}_lvl{lvl}_{original_frame_name}**
-
+* **video_name**: The name of the video.
+* **dist**: The distortion type applied to the video (e.g., rain, blur).
+* **lvl**: The severity level of the distortion (e.g., 1, 2, 3, 4).
+* **num**: The frame index (e.g., 0001, 0002, etc.).
+  
 Example:
 
 ```
@@ -86,19 +90,29 @@ traffic_rain_lvl2_frame_00045.jpg
 airport_blur_lvl4_frame_00012.jpg
 ```
 
-This ensures clear identification of the scene, distortion type, and severity level for every frame.
+This naming pattern ensures clear identification of the scene, distortion type, and severity level for every frame, making it easy to track and analyze the extracted frames.
 
-Run the script from the project root:
+**How to Run:**
+
+To run the script, use the following command from the project root:
 
 ```
-python extract_frames.py --input-dir ./PVD4RCV/Distorted --output-dir ./PVD4RCV/Frames
+python extract_frames.py --input-dir ./PVD4RCV/Distorted --output-dir ./PVD4RCV/Frames --name-txt name_txt_.txt --distortion-dir ./distortion_type_
+
 ```
 
-**What this script does:**
-* Iterates through all distorted video sequences
-* Extracts individual frames using OpenCV (`cv2.VideoCapture`)
-* Saves them with the naming pattern above
-* Preserves scene and distortion metadata for traceability
+**Where:**
+* `--input-dir` specifies the directory containing the distorted videos.
+* `--output-dir` specifies the directory where the frames will be saved.
+* `--name-txt` specifies the path to the text file containing the list of video names.
+* `--distortion-dir` specifies the directory containing the distortion files for each video.
+
+**What this Script Does:**
+* Reads the video names from the specified name_txt_.txt file.
+* Reads distortion metadata for each video from corresponding .txt files in the distortion-dir.
+* Iterates through all videos and distortions for each scene, loading the video using OpenCV (cv2.VideoCapture).
+* Extracts individual frames from each video and saves them using the naming pattern described above.
+* Preserves scene and distortion metadata, ensuring traceability of the extracted frames.
 
 **Requirements:**
 * Python ≥ 3.8
