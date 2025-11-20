@@ -180,7 +180,7 @@ This dual-format annotation setup allows users to directly integrate PVD4RCV int
 ```
 PVD4RCV/
 │
-├── Distorted/ # 672 distorted videos grouped by type & severity
+├── distorted_video/ # 672 distorted videos grouped by type & severity
 │ ├── Sequence1/
 │ │ ├── Sequence1_DistortionType_DistorsionLevel.mp4
 │ │ └── ...
@@ -189,19 +189,27 @@ PVD4RCV/
 │ └── ../
 │
 ├── GroundTruth/ # Truth value directory (annotations)
-├── Sequence1/ # video sequence
-│ ├── BoundingBoxes/ # Per-frame object annotations
-│ │ ├── Sequence1.json
-│ │ ├── txt/ # Per-frame object annotations
-│ │ │ ├── frame_000.txt
-│ │ │ └── ...
+│ ├── annotations/ # video sequence
+│ │ ├── train.json # json annotations of the train set
+│ │ ├── validation.json # json annotations of the validation set
+│ │ ├── yolo/ # Per-frame object annotations
+│ │ │ ├── Sequence/ # Per-frame object annotations
+│ │ │ │ ├── frame_000.txt
+│ │ │ │ └── ...
+│ │ │ ├── ...
+│ │ ├── tracking/ # Per-frame object annotations
+│ │ │ ├── Sequence.json/ # Tracking annotations by sequence
+│ │ │ ├── ...
+│ │ │ ├── yolo/ # Per-frame object annotations
+│ │ │ │ ├── Sequence/ # Per-frame object annotations
+│ │ │ │ │ ├── frame_000.txt
+│ │ │ │ │ └── ...
+│ │ │ │ ├── ...
 │ ├── depth/ # depth map annotations
-│ │ ├── frame_000.png
+│ │ ├── Sequence/ # Per-frame object annotations
+│ │ │ ├── frame_000.png
+│ │ │ └── ...
 │ │ └── ...
-│
-├── ObjectClasses.txt # List of all object categories
-├── SceneMetadata.csv # Scene-level metadata (lighting, motion, etc.)
-└── DistortionLabels.csv # Ground-truth mapping: video ↔ distortion type/level
 ```
 ---
 
@@ -209,7 +217,7 @@ PVD4RCV/
 
 The **GroundTruth/** directory contains all the reference data used for model evaluation and training:
 
-- **BoundingBoxes/** → JSON files with per-frame bounding boxes and object IDs  
+- **BoundingBoxes/** → JSON files and txt files with per-frame bounding boxes and object IDs  
   *(format: frame, object_id, class, x_min, y_min, x_max, y_max)*  
 - **Depth map** → Depth map of each sequences   
 
