@@ -48,6 +48,10 @@ Each sequence is provided with depth maps and annotations to support tasks such 
 Each subset contains both original and distorted versions of the videos (all 4 severity levels).
 Splitting ensures scene disjointness — i.e., no identical scenes appear across training, validation, and test sets, ensuring a fair robustness evaluation.
 
+### Objects distribution
+<img width="3600" height="1800" alt="class_distribution_global" src="https://github.com/user-attachments/assets/509870e1-1a22-4e46-83e8-32b41afec4d2" />
+
+
 ### 🌍 Scenarios included
 
 * Road traffic
@@ -68,7 +72,7 @@ Before setting up the GroundTruth structure, make sure to download the complete 
 
 🌈 Depth maps associated with each video sequence
 
-🗂️ Annotation files (bounding boxes, object classes, and distortion metadata)
+🗂️ Annotation files (bounding boxes, object classes, and depth map)
 
 You can download the full dataset package from the official link:
 👉 Download PVD4RCV Dataset
