@@ -193,10 +193,12 @@ PVD4RCV/
 │ │ ├── train.json # json annotations of the train set
 │ │ ├── validation.json # json annotations of the validation set
 │ │ ├── yolo/ # Per-frame object annotations
+│ │
 │ │ │ ├── Sequence/ # Per-frame object annotations
 │ │ │ │ ├── frame_000.txt
 │ │ │ │ └── ...
 │ │ │ ├── ...
+│ │ │ 
 │ │ ├── tracking/ # Per-frame object annotations
 │ │ │ ├── Sequence.json/ # Tracking annotations by sequence
 │ │ │ ├── ...
@@ -205,11 +207,13 @@ PVD4RCV/
 │ │ │ │ │ ├── frame_000.txt
 │ │ │ │ │ └── ...
 │ │ │ │ ├── ...
+│ │ │ 
 │ ├── depth/ # depth map annotations
 │ │ ├── Sequence/ # Per-frame object annotations
 │ │ │ ├── frame_000.png
 │ │ │ └── ...
 │ │ └── ...
+│ │ 
 ```
 ---
 
