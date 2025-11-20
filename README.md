@@ -97,7 +97,7 @@ This naming pattern ensures clear identification of the scene, distortion type, 
 To run the script, use the following command from the project root:
 
 ```
-python extract_frames.py --input-dir ./PVD4RCV/Distorted --output-dir ./PVD4RCV/Frames --name-txt name_txt_.txt --distortion-dir ./distortion_type_
+python extract_frames.py --input-dir ./PVD4RCV/Distorted --output-dir ./PVD4RCV/Frames --name-txt ./list_sequences.txt --distortion-dir ./distortion_type_
 ```
 
 **Where:**
@@ -130,7 +130,7 @@ This script allows you to:
 * Save the result as a ready-to-use global_annotations.json
 
 🧭 **How to use it**
-**1.** Create a text file named `name_txt.txt` containing the list of sequences to include, e.g.:
+**1.** Create a text file named `list_sequences.txt` containing the list of sequences to include, e.g.:
 
 ```
 traffic
@@ -138,16 +138,16 @@ airport
 mall
 ```
 **2.** Place this file at the root of your project (or next to the script).
+
 **3.** Run the script:
 
 ```
-python generate_custom_json.py
+python generate_extract_dataset.py --set <dataset_name> --global-json-path <path_to_set_annotations.json> --sequence-list-path <path_to_sequence_list.txt> --distortion-dir <path_to_distortion_files> --videos-dir <path_to_videos> --output-json-path <path_to_save_filtered_json> --output-frames-dir <path_to_save_frames> --extract-frames
 ```
 
-**4.** The script will merge only the listed sequences and save the output to:
-
+Exemple:
 ```
-/JSON_GLOBAL_FULL/global_annotations.json
+python generate_extract_dataset.py --set test --global-json-path ./{set}.json --sequence-list-path ./dataset_config/{set}.txt --distortion-dir ./distortion_type_ --videos-dir ./distorted_video/distorted_video --output-json-path ./dataset_config/{output}.json --output-frames-dir ./dataset_config/filtered_frames --extract-frames
 ```
 
 📁 **Output**
@@ -207,9 +207,7 @@ The **GroundTruth/** directory contains all the reference data used for model ev
 
 - **BoundingBoxes/** → JSON files with per-frame bounding boxes and object IDs  
   *(format: frame, object_id, class, x_min, y_min, x_max, y_max)*  
-- **ObjectClasses.txt** → List of object classes present in the dataset (e.g. car, person, ball, etc.)  
-- **SceneMetadata.csv** → Global scene information such as lighting, motion dynamics, and environment type.  
-- **DistortionLabels.csv** → Mapping file linking each distorted video to its original reference and distortion parameters (type, severity, frame count).  
+- **Depth map** → Depth map of each sequences   
 
 ---
 
